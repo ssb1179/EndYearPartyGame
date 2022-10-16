@@ -11,14 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EndYearPartyGame"
-        tools:targetApi="31"
-        android:screenOrientation="landscape">
+        tools:targetApi="31">
 
-        <activity android:name=".GameChoiceActivity"></activity>
+        <activity
+            android:name=".GameChoiceActivity"
+            android:screenOrientation="landscape"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            >
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

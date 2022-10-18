@@ -9,5 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="secondColor">#5588A3</color>
     <color name="lightColor">#E8E8E8</color>
+    <color name="deepColor">#00334E</color>
+    <color name="middleColor">#145374</color>
+
 
 </resources>

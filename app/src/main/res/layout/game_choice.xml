@@ -23,6 +23,7 @@
 
 
             <Button
+                android:id="@+id/btn_relay"
                 android:layout_width="110dp"
                 android:layout_height="0dp"
                 android:layout_marginBottom="20dp"
@@ -34,6 +35,7 @@
                 android:textSize="15pt" />
 
             <Button
+                android:id="@+id/btn_chosung"
                 android:layout_width="110dp"
                 android:layout_height="0dp"
                 android:layout_marginBottom="20dp"
@@ -70,6 +72,12 @@
             android:layout_marginTop="25dp"
             android:layout_marginRight="30dp"
             android:layout_marginBottom="25dp"
+            android:background="@drawable/menu_description">
+
+        <FrameLayout
+            android:id="@+id/frame_relay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:background="@drawable/menu_description">
 
 
@@ -236,6 +244,7 @@
                 android:text="시작하기"
                 android:textColor="@color/lightColor" />
 
+        </FrameLayout>
         </FrameLayout>
 
 

@@ -120,7 +120,6 @@ public class GameChoiceActivity extends AppCompatActivity {
                 relayBtnBackground(btn_relay_star);
             }
         });
-
         btn_relay_food.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

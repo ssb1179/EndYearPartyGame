@@ -68,8 +68,6 @@ public class GameChoiceActivity extends AppCompatActivity {
         btn_relay_famous = findViewById(R.id.btn_relay_famous);
 
 
-
-
         frame_relay = findViewById(R.id.frame_relay);
         frame_chosung = findViewById(R.id.frame_chosung);
         frame_speed = findViewById(R.id.frame_speed);
@@ -109,6 +107,57 @@ public class GameChoiceActivity extends AppCompatActivity {
         });
 
 
+        // 이어말하기 게임 리스너
+        btn_relay_fourChar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                relayBtnBackground(btn_relay_fourChar);
+            }
+        });
+        btn_relay_star.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                relayBtnBackground(btn_relay_star);
+            }
+        });
+        btn_relay_food.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                relayBtnBackground(btn_relay_food);
+            }
+        });
+        btn_relay_animal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                relayBtnBackground(btn_relay_animal);
+            }
+        });
+        btn_relay_life.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                relayBtnBackground(btn_relay_life);
+            }
+        });
+        btn_relay_movie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                relayBtnBackground(btn_relay_movie);
+            }
+        });
+        btn_relay_saying.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                relayBtnBackground(btn_relay_saying);
+            }
+        });
+        btn_relay_famous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                relayBtnBackground(btn_relay_famous);
+            }
+        });
+
+
     }
 
     // 선택된 버튼 배경색 : @drawable/middle_color_frame
@@ -117,6 +166,7 @@ public class GameChoiceActivity extends AppCompatActivity {
     // 선택안된 버튼 글자색 : Color.BLACK)
     // INVISIBLE이 공간은 남아있고 안보이는거
     // 파라미터로 들어오는 버튼이름으로 색 변환시키는 메소드. 전부다 선택안된 상태로 만들고 맨 밑에서 선택시키기
+    // 게임 선택 버튼 색 전환
     public void backColorChange(Button btnName, FrameLayout frameName) {
         frame_relay.setVisibility(View.INVISIBLE);
         btn_relay.setBackgroundResource(R.drawable.menu_button);
@@ -139,8 +189,43 @@ public class GameChoiceActivity extends AppCompatActivity {
         btnName.setTextColor(getResources().getColorStateList(R.color.lightColor));
     }
 
-    public void relayBtnBackground () {
-        // 이어말하기 쪽의 버튼들 누르면 색이 바뀌게하기
+
+    // 이어말하기안의 게임 색 전환
+    public void relayBtnBackground(Button btnName) {
+        btn_relay_fourChar.setBackgroundResource(R.drawable.menu_button);
+        btn_relay_fourChar.setTextColor(getResources().getColorStateList(R.color.black));
+
+        btn_relay_star.setBackgroundResource(R.drawable.menu_button);
+        btn_relay_star.setTextColor(getResources().getColorStateList(R.color.black));
+
+        btn_relay_food.setBackgroundResource(R.drawable.menu_button);
+        btn_relay_food.setTextColor(getResources().getColorStateList(R.color.black));
+
+        btn_relay_animal.setBackgroundResource(R.drawable.menu_button);
+        btn_relay_animal.setTextColor(getResources().getColorStateList(R.color.black));
+
+        btn_relay_life.setBackgroundResource(R.drawable.menu_button);
+        btn_relay_life.setTextColor(getResources().getColorStateList(R.color.black));
+
+        btn_relay_movie.setBackgroundResource(R.drawable.menu_button);
+        btn_relay_movie.setTextColor(getResources().getColorStateList(R.color.black));
+
+
+        btn_relay_famous.setBackgroundResource(R.drawable.seconde_color_frame);
+        btn_relay_famous.setTextColor(getResources().getColorStateList(R.color.lightColor));
+
+        btn_relay_saying.setBackgroundResource(R.drawable.seconde_color_frame);
+        btn_relay_saying.setTextColor(getResources().getColorStateList(R.color.lightColor));
+
+        if (btnName == btn_relay_fourChar || btnName == btn_relay_star || btnName == btn_relay_food
+                || btnName == btn_relay_animal || btnName == btn_relay_life || btnName == btn_relay_movie) {
+            btnName.setBackgroundResource(R.drawable.middle_color_frame);
+            btnName.setTextColor(getResources().getColorStateList(R.color.lightColor));
+
+        } else {
+            btnName.setBackgroundResource(R.drawable.middle_color_frame);
+            btnName.setTextColor(getResources().getColorStateList(R.color.lightColor));
+        }
     }
 
 }

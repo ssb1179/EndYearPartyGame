@@ -12,11 +12,18 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/btn_home"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/home"
+            />
+
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginLeft="55dp"
+
             android:layout_marginTop="25dp"
             android:layout_marginRight="25dp"
             android:orientation="vertical">
@@ -122,40 +129,39 @@
 
                         <Button
                             android:id="@+id/btn_relay_fourChar"
-                            android:layout_width="110dp"
+                            android:layout_width="195dp"
                             android:layout_height="80dp"
                             android:layout_below="@id/txtFour"
                             android:layout_gravity="center_vertical"
                             android:layout_marginTop="20dp"
                             android:layout_marginRight="20dp"
-                            android:layout_toLeftOf="@id/txtFour"
+                            android:layout_marginLeft="10dp"
                             android:background="@drawable/menu_button"
                             android:fontFamily="@font/welcome_font_regular"
                             android:text="사자성어"
                             android:textSize="14pt" />
 
                         <Button
-                            android:id="@+id/btn_relay_star"
-                            android:layout_width="110dp"
+                            android:id="@+id/btn_relay_life"
+                            android:layout_width="195dp"
                             android:layout_height="80dp"
                             android:layout_below="@id/txtFour"
                             android:layout_gravity="center_vertical"
                             android:layout_marginTop="110dp"
                             android:layout_marginRight="20dp"
-                            android:layout_toLeftOf="@id/txtFour"
+                            android:layout_marginLeft="10dp"
                             android:background="@drawable/menu_button"
                             android:fontFamily="@font/welcome_font_regular"
-                            android:text="연예인"
+                            android:text="일상/연예인"
                             android:textSize="15pt" />
 
                         <Button
                             android:id="@+id/btn_relay_food"
-                            android:layout_width="110dp"
+                            android:layout_width="195dp"
                             android:layout_height="80dp"
                             android:layout_below="@id/txtFour"
-                            android:layout_centerHorizontal="true"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="10dp"
+                            android:layout_marginLeft="215dp"
                             android:layout_marginTop="20dp"
                             android:background="@drawable/menu_button"
                             android:fontFamily="@font/welcome_font_regular"
@@ -163,74 +169,34 @@
                             android:textSize="15pt" />
 
                         <Button
-                            android:id="@+id/btn_relay_animal"
-                            android:layout_width="110dp"
-                            android:layout_height="80dp"
-                            android:layout_below="@id/txtFour"
-                            android:layout_centerHorizontal="true"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="110dp"
-                            android:background="@drawable/menu_button"
-                            android:fontFamily="@font/welcome_font_regular"
-                            android:text="동물"
-                            android:textSize="15pt" />
-
-                        <Button
-                            android:id="@+id/btn_relay_life"
-                            android:layout_width="110dp"
-                            android:layout_height="80dp"
-                            android:layout_below="@id/txtFour"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="20dp"
-                            android:layout_toRightOf="@id/txtFour"
-                            android:background="@drawable/menu_button"
-                            android:fontFamily="@font/welcome_font_regular"
-                            android:text="일상"
-                            android:textSize="15pt" />
-
-                        <Button
                             android:id="@+id/btn_relay_movie"
-                            android:layout_width="110dp"
+                            android:layout_width="195dp"
                             android:layout_height="80dp"
                             android:layout_below="@id/txtFour"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginLeft="215dp"
                             android:layout_marginTop="110dp"
-                            android:layout_toRightOf="@id/txtFour"
                             android:background="@drawable/menu_button"
                             android:fontFamily="@font/welcome_font_regular"
-                            android:text="영화\n드라마"
-                            android:textSize="13pt" />
+                            android:text="영화/드라마/노래"
+                            android:textSize="15pt" />
+
                     </RelativeLayout>
                 </FrameLayout>
 
                 <Button
                     android:id="@+id/btn_relay_saying"
                     android:layout_width="167dp"
-                    android:layout_height="120dp"
+                    android:layout_height="250dp"
                     android:layout_gravity="right|center"
                     android:layout_marginRight="20dp"
-                    android:layout_marginBottom="50dp"
+                    android:layout_marginTop="15dp"
                     android:background="@drawable/seconde_color_frame"
                     android:fontFamily="@font/welcome_font_regular"
                     android:text="속담\n이어말하기"
                     android:textColor="@color/lightColor"
                     android:textSize="14pt" />
 
-                <Button
-                    android:id="@+id/btn_relay_famous"
-                    android:layout_width="167dp"
-                    android:layout_height="120dp"
-                    android:layout_gravity="right|center"
-                    android:layout_marginTop="80dp"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/seconde_color_frame"
-                    android:fontFamily="@font/welcome_font_regular"
-                    android:text="명대사\n이어말하기"
-                    android:textColor="@color/lightColor"
-                    android:textSize="14pt" />
 
                 <Button
                     android:id="@+id/btn_relay_start"

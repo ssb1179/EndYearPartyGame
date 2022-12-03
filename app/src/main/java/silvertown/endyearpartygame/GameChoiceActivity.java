@@ -1,5 +1,6 @@
 package silvertown.endyearpartygame;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,27 +11,40 @@ import android.widget.FrameLayout;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import silvertown.endyearpartygame.relay.FourCharActivity;
+import silvertown.endyearpartygame.relay.FourFoodActivity;
+import silvertown.endyearpartygame.relay.FourLifeActivity;
+import silvertown.endyearpartygame.relay.FourMovieActivity;
+
 
 public class GameChoiceActivity extends AppCompatActivity {
 
+    private Button btn_home;
+
+    //왼쪽의 게임 선택 버튼
     private Button btn_relay;
     private Button btn_chosung;
     private Button btn_speed;
     private Button btn_question;
 
+    //릴레이 게임 버튼들
     private Button btn_relay_fourChar;
-    private Button btn_relay_star;
-    private Button btn_relay_food;
-    private Button btn_relay_animal;
     private Button btn_relay_life;
+    private Button btn_relay_food;
     private Button btn_relay_movie;
     private Button btn_relay_saying;
-    private Button btn_relay_famous;
 
+    //각자 선택 화면
     private FrameLayout frame_relay;
     private FrameLayout frame_chosung;
     private FrameLayout frame_speed;
     private FrameLayout frame_question;
+
+    // 게임 시작 버튼들
+    private Button btn_relay_start;
+    String txt_btn_relay = ""; // 릴레이겜 시작을 위한 구분 스트링
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,25 +67,25 @@ public class GameChoiceActivity extends AppCompatActivity {
 
 
         //필드에서 생성해버리면 오류생김 그래서 밑에서 객체 생성
+        btn_home = findViewById(R.id.btn_home);
+
         btn_relay = findViewById(R.id.btn_relay);
         btn_chosung = findViewById(R.id.btn_chosung);
         btn_speed = findViewById(R.id.btn_speed);
         btn_question = findViewById(R.id.btn_question);
 
         btn_relay_fourChar = findViewById(R.id.btn_relay_fourChar);
-        btn_relay_star = findViewById(R.id.btn_relay_star);
-        btn_relay_food = findViewById(R.id.btn_relay_food);
-        btn_relay_animal = findViewById(R.id.btn_relay_animal);
         btn_relay_life = findViewById(R.id.btn_relay_life);
+        btn_relay_food = findViewById(R.id.btn_relay_food);
         btn_relay_movie = findViewById(R.id.btn_relay_movie);
         btn_relay_saying = findViewById(R.id.btn_relay_saying);
-        btn_relay_famous = findViewById(R.id.btn_relay_famous);
-
 
         frame_relay = findViewById(R.id.frame_relay);
         frame_chosung = findViewById(R.id.frame_chosung);
         frame_speed = findViewById(R.id.frame_speed);
         frame_question = findViewById(R.id.frame_question);
+
+        btn_relay_start = findViewById(R.id.btn_relay_start);
 
 
         //이어말하기 클릭
@@ -112,50 +126,70 @@ public class GameChoiceActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 relayBtnBackground(btn_relay_fourChar);
-            }
-        });
-        btn_relay_star.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                relayBtnBackground(btn_relay_star);
-            }
-        });
-        btn_relay_food.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                relayBtnBackground(btn_relay_food);
-            }
-        });
-        btn_relay_animal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                relayBtnBackground(btn_relay_animal);
+                txt_btn_relay = "relay_fourChar";
             }
         });
         btn_relay_life.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 relayBtnBackground(btn_relay_life);
+                txt_btn_relay = "relay_life";
+            }
+        });
+        btn_relay_food.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                relayBtnBackground(btn_relay_food);
+                txt_btn_relay = "relay_food";
             }
         });
         btn_relay_movie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 relayBtnBackground(btn_relay_movie);
+                txt_btn_relay = "relay_momvie";
             }
         });
         btn_relay_saying.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 relayBtnBackground(btn_relay_saying);
+                txt_btn_relay = "relay_saying";
             }
         });
-        btn_relay_famous.setOnClickListener(new View.OnClickListener() {
+
+
+        // 시작버튼 클릭
+        btn_relay_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                relayBtnBackground(btn_relay_famous);
+                if (txt_btn_relay == "relay_fourChar"){
+                    Intent intent = new Intent(getApplicationContext(), FourCharActivity.class);
+                    startActivity(intent);
+                } else if (txt_btn_relay == "relay_life"){
+                    Intent intent = new Intent(getApplicationContext(), FourLifeActivity.class);
+                    startActivity(intent);
+                } else if (txt_btn_relay == "relay_food"){
+                    Intent intent = new Intent(getApplicationContext(), FourFoodActivity.class);
+                    startActivity(intent);
+                } else if (txt_btn_relay == "relay_momvie"){
+                    Intent intent = new Intent(getApplicationContext(), FourMovieActivity.class);
+                    startActivity(intent);
+                }
             }
         });
+
+
+        //홈버튼
+        btn_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
 
     }
@@ -195,30 +229,21 @@ public class GameChoiceActivity extends AppCompatActivity {
         btn_relay_fourChar.setBackgroundResource(R.drawable.menu_button);
         btn_relay_fourChar.setTextColor(getResources().getColorStateList(R.color.black));
 
-        btn_relay_star.setBackgroundResource(R.drawable.menu_button);
-        btn_relay_star.setTextColor(getResources().getColorStateList(R.color.black));
+        btn_relay_life.setBackgroundResource(R.drawable.menu_button);
+        btn_relay_life.setTextColor(getResources().getColorStateList(R.color.black));
 
         btn_relay_food.setBackgroundResource(R.drawable.menu_button);
         btn_relay_food.setTextColor(getResources().getColorStateList(R.color.black));
-
-        btn_relay_animal.setBackgroundResource(R.drawable.menu_button);
-        btn_relay_animal.setTextColor(getResources().getColorStateList(R.color.black));
-
-        btn_relay_life.setBackgroundResource(R.drawable.menu_button);
-        btn_relay_life.setTextColor(getResources().getColorStateList(R.color.black));
 
         btn_relay_movie.setBackgroundResource(R.drawable.menu_button);
         btn_relay_movie.setTextColor(getResources().getColorStateList(R.color.black));
 
 
-        btn_relay_famous.setBackgroundResource(R.drawable.seconde_color_frame);
-        btn_relay_famous.setTextColor(getResources().getColorStateList(R.color.lightColor));
 
         btn_relay_saying.setBackgroundResource(R.drawable.seconde_color_frame);
         btn_relay_saying.setTextColor(getResources().getColorStateList(R.color.lightColor));
 
-        if (btnName == btn_relay_fourChar || btnName == btn_relay_star || btnName == btn_relay_food
-                || btnName == btn_relay_animal || btnName == btn_relay_life || btnName == btn_relay_movie) {
+        if (btnName == btn_relay_fourChar || btnName == btn_relay_life || btnName == btn_relay_food || btnName == btn_relay_movie ) {
             btnName.setBackgroundResource(R.drawable.middle_color_frame);
             btnName.setTextColor(getResources().getColorStateList(R.color.lightColor));
 

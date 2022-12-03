@@ -24,6 +24,8 @@ public class FourMovieActivity extends AppCompatActivity {
     private TextView btn_prev;
     private Button btn_home;
 
+    private TextView txt_num;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,18 +52,23 @@ public class FourMovieActivity extends AppCompatActivity {
         btn_prev = findViewById(R.id.btn_prev);
 
         btn_home = findViewById(R.id.btn_home);
+        txt_num = findViewById(R.id.txt_num);
 
         main_fourMovie.setText(fc_list.getMovieList().get(stackNum));
+        txt_num.setText(stackNum+1  + "/" + fc_list.getMovieList().size());
 
         // 대음! 버튼 다음버튼입니다
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                stackNum++;
-                main_fourMovie.setText(fc_list.getMovieList().get(stackNum));
-
-                if (stackNum == fc_list.getMovieList().size()){
+                if (stackNum + 1 == fc_list.getMovieList().size()){
                     stackNum = 0;
+                    main_fourMovie.setText(fc_list.getMovieList().get(stackNum));
+                    txt_num.setText(stackNum+1 + "/" + fc_list.getMovieList().size());
+                } else {
+                    stackNum++;
+                    main_fourMovie.setText(fc_list.getMovieList().get(stackNum));
+                    txt_num.setText(stackNum+1 + "/" + fc_list.getMovieList().size());
                 }
             }
         });
@@ -72,6 +79,8 @@ public class FourMovieActivity extends AppCompatActivity {
                 if (stackNum != 0) {
                     stackNum--;
                     main_fourMovie.setText(fc_list.getMovieList().get(stackNum));
+                    txt_num.setText(stackNum+1 + "/" + fc_list.getMovieList().size());
+
                 }
             }
         });

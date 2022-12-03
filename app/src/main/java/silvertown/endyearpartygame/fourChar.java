@@ -72,7 +72,7 @@ public class fourChar {
         Collections.shuffle(fourCharList);
         Collections.shuffle(lifeList);
         Collections.shuffle(foodList);
-        Collections.shuffle(foodList);
+        Collections.shuffle(movieList);
     }
 
     public List<String> getFourCharList() {

@@ -25,6 +25,8 @@ public class FourLifeActivity extends AppCompatActivity {
     private TextView btn_prev;
     private Button btn_home;
 
+    private TextView txt_num;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,18 +53,24 @@ public class FourLifeActivity extends AppCompatActivity {
         btn_prev = findViewById(R.id.btn_prev);
 
         btn_home = findViewById(R.id.btn_home);
+        txt_num = findViewById(R.id.txt_num);
 
         main_fourLife.setText(fc_list.getLifeList().get(stackNum));
+        txt_num.setText(stackNum + "/" + fc_list.getLifeList().size());
 
         // 대음! 버튼 다음버튼입니다
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                stackNum++;
-                main_fourLife.setText(fc_list.getLifeList().get(stackNum));
-
-                if (stackNum == fc_list.getLifeList().size()){
+                if (stackNum + 1 == fc_list.getLifeList().size()){
                     stackNum = 0;
+                    main_fourLife.setText(fc_list.getLifeList().get(stackNum));
+                    txt_num.setText(stackNum+1 + "/" + fc_list.getLifeList().size());
+
+                } else {
+                    stackNum++;
+                    main_fourLife.setText(fc_list.getLifeList().get(stackNum));
+                    txt_num.setText(stackNum+1 + "/" + fc_list.getLifeList().size());
                 }
             }
         });
@@ -73,6 +81,7 @@ public class FourLifeActivity extends AppCompatActivity {
                 if (stackNum != 0) {
                     stackNum--;
                     main_fourLife.setText(fc_list.getLifeList().get(stackNum));
+                    txt_num.setText(stackNum+1 + "/" + fc_list.getLifeList().size());
                 }
             }
         });

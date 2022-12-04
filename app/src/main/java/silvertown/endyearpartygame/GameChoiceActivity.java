@@ -15,6 +15,7 @@ import silvertown.endyearpartygame.relay.FourCharActivity;
 import silvertown.endyearpartygame.relay.FourFoodActivity;
 import silvertown.endyearpartygame.relay.FourLifeActivity;
 import silvertown.endyearpartygame.relay.FourMovieActivity;
+import silvertown.endyearpartygame.relay.ProverbActivity;
 
 
 public class GameChoiceActivity extends AppCompatActivity {
@@ -32,7 +33,7 @@ public class GameChoiceActivity extends AppCompatActivity {
     private Button btn_relay_life;
     private Button btn_relay_food;
     private Button btn_relay_movie;
-    private Button btn_relay_saying;
+    private Button btn_relay_proverb;
 
     //각자 선택 화면
     private FrameLayout frame_relay;
@@ -78,7 +79,7 @@ public class GameChoiceActivity extends AppCompatActivity {
         btn_relay_life = findViewById(R.id.btn_relay_life);
         btn_relay_food = findViewById(R.id.btn_relay_food);
         btn_relay_movie = findViewById(R.id.btn_relay_movie);
-        btn_relay_saying = findViewById(R.id.btn_relay_saying);
+        btn_relay_proverb = findViewById(R.id.btn_relay_proverb);
 
         frame_relay = findViewById(R.id.frame_relay);
         frame_chosung = findViewById(R.id.frame_chosung);
@@ -150,11 +151,11 @@ public class GameChoiceActivity extends AppCompatActivity {
                 txt_btn_relay = "relay_momvie";
             }
         });
-        btn_relay_saying.setOnClickListener(new View.OnClickListener() {
+        btn_relay_proverb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                relayBtnBackground(btn_relay_saying);
-                txt_btn_relay = "relay_saying";
+                relayBtnBackground(btn_relay_proverb);
+                txt_btn_relay = "relay_proverb";
             }
         });
 
@@ -174,6 +175,9 @@ public class GameChoiceActivity extends AppCompatActivity {
                     startActivity(intent);
                 } else if (txt_btn_relay == "relay_momvie"){
                     Intent intent = new Intent(getApplicationContext(), FourMovieActivity.class);
+                    startActivity(intent);
+                } else if (txt_btn_relay == "relay_proverb"){
+                    Intent intent = new Intent(getApplicationContext(), ProverbActivity.class);
                     startActivity(intent);
                 }
             }
@@ -240,8 +244,8 @@ public class GameChoiceActivity extends AppCompatActivity {
 
 
 
-        btn_relay_saying.setBackgroundResource(R.drawable.seconde_color_frame);
-        btn_relay_saying.setTextColor(getResources().getColorStateList(R.color.lightColor));
+        btn_relay_proverb.setBackgroundResource(R.drawable.seconde_color_frame);
+        btn_relay_proverb.setTextColor(getResources().getColorStateList(R.color.lightColor));
 
         if (btnName == btn_relay_fourChar || btnName == btn_relay_life || btnName == btn_relay_food || btnName == btn_relay_movie ) {
             btnName.setBackgroundResource(R.drawable.middle_color_frame);

@@ -11,15 +11,16 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import silvertown.endyearpartygame.GameChoiceActivity;
+import silvertown.endyearpartygame.Proverb;
 import silvertown.endyearpartygame.R;
 import silvertown.endyearpartygame.fourChar;
 
-public class FourMovieActivity extends AppCompatActivity {
+public class ProverbActivity extends AppCompatActivity {
 
     int stackNum = 0;
-    private fourChar fc_list = new fourChar();
+    private Proverb list = new Proverb();
 
-    private TextView main_fourMovie;
+    private TextView main_proverb;
     private TextView btn_next;
     private TextView btn_prev;
     private Button btn_home;
@@ -29,7 +30,7 @@ public class FourMovieActivity extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.four_movie_view);
+        setContentView(R.layout.proverb_view);
 
         //네비게이션 바 없애기 코드
         int uiOptions = getWindow().getDecorView().getSystemUiVisibility();
@@ -46,7 +47,7 @@ public class FourMovieActivity extends AppCompatActivity {
         getWindow().getDecorView().setSystemUiVisibility(newUiOptions);
 
 
-        main_fourMovie = findViewById(R.id.main_fourMovie);
+        main_proverb = findViewById(R.id.main_proverb);
 
         btn_next = findViewById(R.id.btn_next);
         btn_prev = findViewById(R.id.btn_prev);
@@ -54,23 +55,21 @@ public class FourMovieActivity extends AppCompatActivity {
         btn_home = findViewById(R.id.btn_home);
         txt_num = findViewById(R.id.txt_num);
 
-        main_fourMovie.setText(fc_list.getMovieList().get(stackNum));
-        txt_num.setText(stackNum+1  + "/" + fc_list.getMovieList().size());
+        main_proverb.setText(list.getProverb_list().get(stackNum));
+        txt_num.setText(stackNum + "/" + list.getProverb_list().size());
 
         // 대음! 버튼 다음버튼입니다
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (stackNum + 1 == fc_list.getMovieList().size()){
+                if (stackNum + 1 == list.getProverb_list().size()){
                     stackNum = 0;
-                    main_fourMovie.setText(fc_list.getMovieList().get(stackNum));
-                    txt_num.setText(stackNum+1 + "/" + fc_list.getMovieList().size());
+                    main_proverb.setText(list.getProverb_list().get(stackNum));
+                    txt_num.setText(stackNum+1 + "/" + list.getProverb_list().size());
                 } else {
                     stackNum++;
-
-
-                    main_fourMovie.setText(fc_list.getMovieList().get(stackNum));
-                    txt_num.setText(stackNum+1 + "/" + fc_list.getMovieList().size());
+                    main_proverb.setText(list.getProverb_list().get(stackNum));
+                    txt_num.setText(stackNum+1 + "/" + list.getProverb_list().size());
                 }
             }
         });
@@ -80,9 +79,8 @@ public class FourMovieActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (stackNum != 0) {
                     stackNum--;
-                    main_fourMovie.setText(fc_list.getMovieList().get(stackNum));
-                    txt_num.setText(stackNum+1 + "/" + fc_list.getMovieList().size());
-
+                    main_proverb.setText(list.getProverb_list().get(stackNum));
+                    txt_num.setText(stackNum+1 + "/" + list.getProverb_list().size());
                 }
             }
         });

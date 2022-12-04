@@ -185,7 +185,7 @@
                 </FrameLayout>
 
                 <Button
-                    android:id="@+id/btn_relay_saying"
+                    android:id="@+id/btn_relay_proverb"
                     android:layout_width="167dp"
                     android:layout_height="250dp"
                     android:layout_gravity="right|center"

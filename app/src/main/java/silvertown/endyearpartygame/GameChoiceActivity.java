@@ -35,6 +35,8 @@ public class GameChoiceActivity extends AppCompatActivity {
     private Button btn_relay_movie;
     private Button btn_relay_proverb;
 
+
+
     //각자 선택 화면
     private FrameLayout frame_relay;
     private FrameLayout frame_chosung;
@@ -45,6 +47,7 @@ public class GameChoiceActivity extends AppCompatActivity {
     private Button btn_relay_start;
     String txt_btn_relay = ""; // 릴레이겜 시작을 위한 구분 스트링
 
+    private Button btn_question_start;
 
 
     @Override
@@ -87,6 +90,8 @@ public class GameChoiceActivity extends AppCompatActivity {
         frame_question = findViewById(R.id.frame_question);
 
         btn_relay_start = findViewById(R.id.btn_relay_start);
+
+        btn_question_start = findViewById(R.id.btn_question_start);
 
 
         //이어말하기 클릭
@@ -180,6 +185,15 @@ public class GameChoiceActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), ProverbActivity.class);
                     startActivity(intent);
                 }
+            }
+        });
+
+        //질문을 맞춰라 시작버튼
+        btn_question_start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), QuestionActivity.class);
+                startActivity(intent);
             }
         });
 

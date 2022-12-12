@@ -35,7 +35,7 @@ public class Proverb {
     public Proverb () {
         for (int i = 0; i < proverb_list.size(); i++) {
             proverb_list.set(i, proverb_list.get(i).replace("/ ", "/\n"));
-        }
+        } // /뒤로 한칸 엔터
 
         Collections.shuffle(proverb_list);
     }
